@@ -79,24 +79,24 @@ open class MenuItemView: UIView {
         
         switch menuItemOptions.displayMode {
         case .text(let title):
-            commonInit({
-                self.setupTitleLabel(title)
-                self.layoutLabel()
+            commonInit({ [weak self] in
+                self?.setupTitleLabel(title)
+                self?.layoutLabel()
             })
         case let .multilineText(title, description):
-            commonInit({
-                self.setupMultilineLabel(title, description: description)
-                self.layoutMultiLineLabel()
+            commonInit({ [weak self] in
+                self?.setupMultilineLabel(title, description: description)
+                self?.layoutMultiLineLabel()
             })
         case .image(let image, _):
-            commonInit({
-                self.setupImageView(image)
-                self.layoutImageView()
+            commonInit({ [weak self] in
+                self?.setupImageView(image)
+                self?.layoutImageView()
             })
         case .custom(let view):
-            commonInit({
-                self.setupCustomView(view)
-                self.layoutCustomView()
+            commonInit({ [weak self] in
+                self?.setupCustomView(view)
+                self?.layoutCustomView()
             })
         }
     }

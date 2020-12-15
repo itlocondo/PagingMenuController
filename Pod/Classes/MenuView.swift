@@ -87,7 +87,7 @@ open class MenuView: UIScrollView {
         
         self.menuOptions = menuOptions
         
-        commonInit({ self.constructMenuItemViews(menuOptions) })
+        commonInit({ [weak self] in self?.constructMenuItemViews(menuOptions) })
     }
     
     fileprivate func commonInit(_ constructor: () -> Void) {
